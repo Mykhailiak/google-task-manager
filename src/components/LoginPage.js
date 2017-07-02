@@ -12,7 +12,7 @@ class LoginPage extends Component {
 
   render() {
     if (this.props.isAuthorized) {
-      return <Redirect to="/" />;
+      return <Redirect to="/about" />;
     }
 
     return (

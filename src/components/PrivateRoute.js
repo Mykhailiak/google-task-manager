@@ -3,17 +3,18 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
-import { object } from 'prop-types';
+import { func, bool } from 'prop-types';
 
 const PrivateRoute = ({
   component: Component,
+  isAuthorized,
   ...rest
 }) => {
   return (
     <Route
       {...rest}
       render={props => (
-        this.props.isAuthorized ? (
+        isAuthorized ? (
           <Component {...props} />
         ) : (
           <Redirect to="/login" />
@@ -24,7 +25,8 @@ const PrivateRoute = ({
 };
 
 PrivateRoute.propTypes = {
-  component: object.isRequired,
+  component: func.isRequired,
+  isAuthorized: bool.isRequired,
 };
 
 export default PrivateRoute;

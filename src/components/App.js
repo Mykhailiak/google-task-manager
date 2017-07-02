@@ -3,7 +3,9 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
+import { bool } from 'prop-types';
 import LoginPageContainer from '../containers/LoginPageContainer';
+import PrivateRoute from './PrivateRoute';
 import AboutPage from './AboutPage';
 import api from '../api';
 import './App.css';
@@ -21,11 +23,15 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route path="/login" component={LoginPageContainer} />
-          <Route path="/about" component={AboutPage} />
+          <PrivateRoute path="/about" isAuthorized={this.props.isAuthorized} component={AboutPage} />
         </div>
       </Router>
     );
   }
 }
+
+App.propTypes = {
+  isAuthorized: bool.isRequired,
+};
 
 export default App;
