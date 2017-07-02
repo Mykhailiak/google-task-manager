@@ -17,20 +17,16 @@ export default {
       script.onerror = (err) => reject(err);
     });
   },
-  authorize(params) {
+  authorize({ immediate, }) {
     return new Promise((resolve) => {
       gapi.auth.authorize({
-        'client_id': CLIENT_ID,
-        'scope': SCOPES,
-        'immediate': params.immediate,
-        'cookie_policy': 'single_host_origin',
+        client_id: CLIENT_ID,
+        scope: SCOPES,
+        immediate: immediate,
+        cookie_policy: 'single_host_origin',
       }, (authResult) => {
         resolve(authResult);
       });
     });
-  },
-  init(...params) {
-    return this.loadApi()
-      .then(() => this.authorize(...params));
   },
 };

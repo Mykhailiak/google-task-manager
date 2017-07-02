@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import './LoginPage.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { func } from 'prop-types';
 
 class LoginPage extends Component {
   handleLogin = () => {
-    // console.log('Login');
+    this.props.login();
   }
 
   render() {
@@ -28,5 +29,9 @@ class LoginPage extends Component {
     );
   }
 }
+
+LoginPage.propTypes = {
+  login: func.isRequired,
+};
 
 export default LoginPage;
