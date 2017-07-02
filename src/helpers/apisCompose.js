@@ -1,4 +1,4 @@
-export /**
+/**
  * Compose load api`s functions
  * 
  * @param {Object} {
@@ -8,7 +8,7 @@ export /**
  * } 
  * @returns {Function}
  */
-const compose = ({
+export const compose = ({
   apis = [],
   load,
   resolve,

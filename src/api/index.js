@@ -48,4 +48,15 @@ export default {
       });
     });
   },
+
+  /**
+   * Fetch tasks list
+   * 
+   * @returns {Promise}
+   */
+  fetchTasksLists() {
+    const request = gapi.client.tasks.tasklists.list();
+
+    return new Promise((resolve) => request.execute(resp => resolve(resp)));
+  },
 };
