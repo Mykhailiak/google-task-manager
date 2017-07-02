@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import './LoginPage.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { func } from 'prop-types';
+import { func, bool } from 'prop-types';
 
 class LoginPage extends Component {
   handleLogin = () => {
@@ -10,6 +11,10 @@ class LoginPage extends Component {
   }
 
   render() {
+    if (this.props.isAuthorized) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div className="LoginPage">
         <section className="LoginPage__banner">
@@ -32,6 +37,7 @@ class LoginPage extends Component {
 
 LoginPage.propTypes = {
   login: func.isRequired,
+  isAuthorized: bool.isRequired,
 };
 
 export default LoginPage;

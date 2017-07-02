@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Redirect
 } from 'react-router-dom';
 import './App.css';
-import LoginPage from './LoginPage';
-import { bool } from 'prop-types';
+import LoginPageContainer from '../containers/LoginPageContainer';
 import api from '../api';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -21,19 +19,11 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route path="/login" render={() => (
-            !this.props.isAuthorized ?
-              <LoginPage {...this.props} /> :
-              <Redirect to="/" />
-          )} />
+          <Route path="/login" isAuthorized="true" component={LoginPageContainer} />
         </div>
       </Router>
     );
   }
 }
-
-App.propTypes = {
-  isAuthorized: bool.isRequired,
-};
 
 export default App;
