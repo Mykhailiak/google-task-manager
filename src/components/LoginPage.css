@@ -1,0 +1,10 @@
+.LoginPage {
+  min-height: 100vh;
+  background-color: #00BCD4;
+}
+
+.LoginPage__banner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
