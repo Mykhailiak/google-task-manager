@@ -13,4 +13,4 @@ export default function(initialState = {}) {
     initialState,
     composeWithDevTools(applyMiddleware(...middlewares))
   );
-};
+}
