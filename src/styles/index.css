@@ -16,3 +16,9 @@ h5 {
 *, *:before, *:after {
   box-sizing: border-box;
 }
+
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+}
