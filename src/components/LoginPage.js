@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class LoginPage extends Component {
   handleLogin = () => {
-    console.log('Login');
+    // console.log('Login');
   }
 
   render() {

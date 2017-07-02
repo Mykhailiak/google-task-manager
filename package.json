@@ -9,13 +9,21 @@
     "react-tap-event-plugin": "^2.0.1"
   },
   "devDependencies": {
-    "eslint": "^4.1.1",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.1.0",
+    "pre-commit": "^1.2.2",
     "react-scripts": "1.0.10"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "eslint:check": "./node_modules/eslint/bin/eslint.js src/",
+    "eslint:fix": "./node_modules/eslint/bin/eslint.js src/ --fix"
+  },
+  "pre-commit": [
+    "eslint:fix"
+  ]
 }
