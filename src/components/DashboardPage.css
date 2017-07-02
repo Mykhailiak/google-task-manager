@@ -1,0 +1,15 @@
+.DashboardPage {
+  display: flex;
+}
+
+.DashboardPage__sidebar {
+  width: 25%;
+  min-height: 100vh;
+  border-right: 1px solid rgb(224, 224, 224);
+}
+
+.DashboardPage__main {
+  width: 75%;
+  padding: 10px;
+  min-height: 100vh;
+}

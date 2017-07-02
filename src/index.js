@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import './styles/index.css';
 import MainContainer from './containers/MainContainer';
 import createStore from './store/createStore';
+import './styles/index.css';
 
 const store = createStore();
 
