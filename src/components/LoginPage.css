@@ -1,12 +1,24 @@
 .LoginPage {
   min-height: 100vh;
   background-color: #00BCD4;
+  color: #fff;
 }
 
 .LoginPage__banner {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.LoginPage__title {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.LoginPage__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .LoginPage__image {

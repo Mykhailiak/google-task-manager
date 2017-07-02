@@ -4,17 +4,26 @@ import './LoginPage.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class LoginPage extends Component {
+  handleLogin = () => {
+    console.log('Login');
+  }
+
   render() {
     return (
       <div className="LoginPage">
-        <div className="LoginPage__banner">
-          <div className="LoginPage__text">
+        <section className="LoginPage__banner">
+          <section className="LoginPage__text">
+            <h1 className="LoginPage__title">Google Task Manager</h1>
+            <h3 className="LoginPage__subtitle">Orginize your life</h3>
             <MuiThemeProvider>
-              <RaisedButton label="Login" />
+              <RaisedButton
+                label="Login with google"
+                onClick={this.handleLogin}
+              />
             </MuiThemeProvider>
-          </div>
-          <img src="http://www.themes-lab.com/make-frontend/common-files/images/flat-desk.png" className="LoginPage__image" alt=""/>
-        </div>
+          </section>
+          <img src="/img/desk.png" className="LoginPage__image" alt="" />
+        </section>
       </div>
     );
   }
