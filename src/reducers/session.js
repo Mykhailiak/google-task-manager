@@ -24,6 +24,7 @@ export default function sessionReducer(state = initialState, action) {
       isLoggedIn: false,
       authError: true,
       error: action.error,
+      user: {},
     };
   default:
     return state;

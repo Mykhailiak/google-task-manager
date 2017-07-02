@@ -1,7 +1,13 @@
 import { CLIENT_ID, SCOPES } from './settings.json';
+import { compose } from '../helpers/apisCompose';
 
 /* eslint-disable no-undef */
 export default {
+  /**
+   * load google api
+   * 
+   * @returns {Promise}
+   */
   loadApi() {
     const script = document.createElement('script');
     script.src = 'https://apis.google.com/js/client.js';
@@ -11,12 +17,25 @@ export default {
     return new Promise((resolve, reject) => {
       script.onload = () => {
         gapi.load('client', () => {
-          gapi.client.load('tasks', 'v1', () => gapi.client.load('plus', 'v1', () => resolve()));
+          compose({
+            apis: [
+              { api: 'tasks', version: 'v1', },
+              { api: 'plus', version: 'v1', },
+            ],
+            load: gapi.client.load,
+            resolve,
+          })();
         });
       };
       script.onerror = (err) => reject(err);
     });
   },
+  /**
+   * Authenticate with Google
+   * 
+   * @param {Object} { immediate } 
+   * @returns {Promise}
+   */
   authorize({ immediate, }) {
     return new Promise((resolve) => {
       gapi.auth.authorize({
