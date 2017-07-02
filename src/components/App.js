@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
 import './App.css';
 import LoginPage from './LoginPage';
 
@@ -8,9 +12,11 @@ injectTapEventPlugin();
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <LoginPage />
-      </div>
+      <Router>
+        <div className="App">
+          <Route component={LoginPage} />
+        </div>
+      </Router>
     );
   }
 }
