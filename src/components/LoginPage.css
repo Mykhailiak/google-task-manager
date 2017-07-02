@@ -8,3 +8,9 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.LoginPage__image {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+}

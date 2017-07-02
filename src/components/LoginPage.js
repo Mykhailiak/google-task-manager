@@ -13,7 +13,7 @@ class LoginPage extends Component {
               <RaisedButton label="Login" />
             </MuiThemeProvider>
           </div>
-          <img src="http://www.themes-lab.com/make-frontend/common-files/images/flat-desk.png" alt=""/>
+          <img src="http://www.themes-lab.com/make-frontend/common-files/images/flat-desk.png" className="LoginPage__image" alt=""/>
         </div>
       </div>
     );
