@@ -5,9 +5,9 @@ import {
 } from 'react-router-dom';
 import { bool } from 'prop-types';
 import LoginPageContainer from '../containers/LoginPageContainer';
+import DashboardPageContainer from '../containers/DashboardContainer';
 import PrivateRoute from './PrivateRoute';
 import AboutPage from './AboutPage';
-import DashboardPage from './DashboardPage';
 import api from '../api';
 import './App.css';
 
@@ -24,7 +24,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route path="/login" component={LoginPageContainer} />
-          <Route path="/dashboard" component={DashboardPage} />
+          <Route path="/dashboard" component={DashboardPageContainer} />
           <PrivateRoute path="/about" isAuthorized={this.props.isAuthorized} component={AboutPage} />
         </div>
       </Router>
