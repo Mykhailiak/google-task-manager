@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import Navigation from './Navigation';
-import { func, array } from 'prop-types';
+import TasksListsItemContainer from '../containers/TasksListItemContainer';
+import { func, array, object } from 'prop-types';
 import './DashboardPage.css';
 
 class DashboardPage extends Component {
@@ -15,7 +17,11 @@ class DashboardPage extends Component {
           <Navigation tasksLists={this.props.tasksLists} />
         </aside>
         <section className="DashboardPage__main">
-          <h3>Main</h3>
+          <Route
+            component={TasksListsItemContainer}
+            path={`${this.props.match.url}/lists/:id`}
+            exact
+          />
         </section>
       </div>
     );
@@ -25,6 +31,7 @@ class DashboardPage extends Component {
 DashboardPage.propTypes = {
   tasksLists: array.isRequired,
   fetchTasksLists: func.isRequired,
+  match: object.isRequired,
 };
 
 export default DashboardPage;

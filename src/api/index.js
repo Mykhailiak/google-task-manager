@@ -59,4 +59,18 @@ export default {
 
     return new Promise((resolve) => request.execute(resp => resolve(resp)));
   },
+
+  /**
+   * Fetch single tasks list 
+   * 
+   * @param {String} taskListId 
+   * @returns {Promise}
+   */
+  fetchTasksListItem(tasklist) {
+    const request = gapi.client.tasks.tasks.list({
+      tasklist,
+    });
+
+    return new Promise((resolve) => request.execute(resp => resolve(resp)));
+  },
 };

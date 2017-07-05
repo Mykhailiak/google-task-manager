@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { List, ListItem } from 'material-ui/List';
 import FolderIcon from 'material-ui/svg-icons/file/folder';
@@ -15,7 +16,12 @@ const TasksLists = ({
         <Subheader>Tasks Lists</Subheader>
         <List className={listClassName}>
           {items.map(item => (
-            <ListItem key={item.id} leftIcon={<FolderIcon />} primaryText={item.title} />
+            <Link key={item.id} to={`dashboard/lists/${item.id}`}>
+              <ListItem
+                leftIcon={<FolderIcon />}
+                primaryText={item.title}
+              />
+            </Link>
           ))}
         </List>
       </section>
