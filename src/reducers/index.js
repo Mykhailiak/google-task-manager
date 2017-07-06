@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import session from './session';
 import tasksLists from './tasksLists';
-import taskListItem from './tasklistItem';
+import tasksListItem from './tasksListItem';
 
 export default combineReducers({
   session,
   tasksLists,
-  taskListItem,
+  tasksListItem,
 });
