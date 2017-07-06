@@ -4,8 +4,6 @@ import SingleTask from './SingleTask';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Progress from './Progress';
 import Paper from 'material-ui/Paper';
-import './TasksListItem';
-
 
 class TasksListItem extends Component {
   componentWillMount() {

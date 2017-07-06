@@ -2,7 +2,6 @@ import React from 'react';
 import { string } from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Card, CardHeader } from 'material-ui/Card';
-import './SingleTask.css';
 
 const SingleTask = ({
   title,

@@ -30,6 +30,7 @@ export default {
       script.onerror = (err) => reject(err);
     });
   },
+
   /**
    * Authenticate with Google
    * 
