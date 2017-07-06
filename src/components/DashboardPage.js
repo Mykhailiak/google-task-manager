@@ -14,7 +14,7 @@ class DashboardPage extends Component {
     return (
       <div className="DashboardPage">
         <aside className="DashboardPage__sidebar">
-          <Navigation tasksLists={this.props.tasksLists} />
+          <Navigation createTaskList={this.props.createTaskList} tasksLists={this.props.tasksLists} />
         </aside>
         <section className="DashboardPage__main">
           <Route
@@ -32,6 +32,7 @@ DashboardPage.propTypes = {
   tasksLists: array.isRequired,
   fetchTasksLists: func.isRequired,
   match: object.isRequired,
+  createTaskList: func.isRequired,
 };
 
 export default DashboardPage;

@@ -6,11 +6,12 @@ import ContentInbox from 'material-ui/svg-icons/content/inbox';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import Divider from 'material-ui/Divider';
 import TasksLists from './TasksLists';
-import { array } from 'prop-types';
+import { array, func } from 'prop-types';
 import './Navigation.css';
 
 const Navigation = ({
   tasksLists,
+  createTaskList,
 }) => {
   return (
     <section className="Navigation">
@@ -27,7 +28,11 @@ const Navigation = ({
             </Link>
           </List>
           <Divider />
-          <TasksLists listClassName="Navigation__list" items={tasksLists} />
+          <TasksLists
+            createTaskList={createTaskList}
+            listClassName="Navigation__list"
+            items={tasksLists}
+          />
           <Divider />
           <List className="Navigation__list">
             <ListItem primaryText="Logout" />
@@ -40,6 +45,7 @@ const Navigation = ({
 
 Navigation.propTypes = {
   tasksLists: array.isRequired,
+  createTaskList: func.isRequired,
 };
 
 export default Navigation;

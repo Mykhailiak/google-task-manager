@@ -1,7 +1,9 @@
 import {
   TASKS_LISTS_SUCCESS,
   TASKS_LISTS_FAIL,
-  TASKS_LISTS_REQUEST
+  TASKS_LISTS_REQUEST,
+  CREATE_TASK_LIST_SUCCESS,
+  CREATE_TASK_LIST_FAIL,
 } from '../constants/tasksLists';
 
 const initialState = {
@@ -25,7 +27,7 @@ export default function tasksListReducer(state = initialState, action) {
       loading: false,
       errorMessage: action.error,
     };
-  case TASKS_LISTS_SUCCESS: {
+  case TASKS_LISTS_SUCCESS:
     return {
       ...state,
       error: false,
@@ -33,7 +35,23 @@ export default function tasksListReducer(state = initialState, action) {
       loading: false,
       list: action.payload,
     };
-  }
+  case CREATE_TASK_LIST_SUCCESS:
+    return {
+      ...state,
+      error: false,
+      loading: false,
+      errorMessage: '',
+      list: [
+        ...state.list,
+        action.payload,
+      ],
+    };
+  case CREATE_TASK_LIST_FAIL:
+    return {
+      ...state,
+      loading: false,
+      errorMessage: action.error,
+    };
   default:
     return state;
   }
