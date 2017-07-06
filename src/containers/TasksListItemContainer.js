@@ -3,7 +3,7 @@ import TasksListItem from '../components/TasksListItem';
 import { fetchTaskskListItem } from '../actions/tasksListItem';
 
 const mapStateToProps = (state) => ({
-  tasksListItem: state.tasksListItem,
+  tasks: state.tasksListItem.list,
 });
 
 const mapDispatchToProps = (dispatch) => ({

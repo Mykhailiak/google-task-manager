@@ -5,16 +5,16 @@ import {
 
 const initialData = {
   error: false,
-  tasksList: [],
+  list: [],
 };
 
-export default function taskListItemReducer(state = initialData, action) {
+export default function tasksListItemReducer(state = initialData, action) {
   switch (action.type) {
   case TASKS_LIST_ITEM_SUCCESS:
     return {
       ...state,
       error: false,
-      tasksList: action.list,
+      list: action.list,
     };
   case TASKS_LIST_ITEM_FAIL:
     return {

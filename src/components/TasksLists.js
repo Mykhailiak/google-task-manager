@@ -16,7 +16,7 @@ const TasksLists = ({
         <Subheader>Tasks Lists</Subheader>
         <List className={listClassName}>
           {items.map(item => (
-            <Link key={item.id} to={`dashboard/lists/${item.id}`}>
+            <Link key={item.id} to={`/dashboard/lists/${item.id}`}>
               <ListItem
                 leftIcon={<FolderIcon />}
                 primaryText={item.title}
