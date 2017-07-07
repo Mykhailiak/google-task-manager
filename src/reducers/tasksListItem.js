@@ -22,7 +22,7 @@ export default function tasksListItemReducer(state = initialData, action) {
       ...state,
       error: false,
       loading: false,
-      list: action.list,
+      list: action.list || initialData.list,
     };
   case TASKS_LIST_ITEM_FAIL:
     return {
