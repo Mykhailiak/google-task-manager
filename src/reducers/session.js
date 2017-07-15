@@ -1,6 +1,7 @@
 import {
   SESSION_AUTHORIZE_SUCCESS,
-  SESSION_AUTHORIZE_FAIL
+  SESSION_AUTHORIZE_FAIL,
+  SESSION_SIGN_OUT_SUCCESS,
 } from '../constants/session';
 
 const initialState = {
@@ -24,6 +25,13 @@ export default function sessionReducer(state = initialState, action) {
       isLoggedIn: false,
       authError: true,
       error: action.error,
+      user: {},
+    };
+  case SESSION_SIGN_OUT_SUCCESS:
+    return {
+      ...state,
+      isLoggedIn: false,
+      authError: false,
       user: {},
     };
   default:

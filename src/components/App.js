@@ -25,8 +25,16 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route path="/login" component={LoginPageContainer} />
-          <Route path="/dashboard" component={DashboardPageContainer} />
-          <PrivateRoute path="/about" isAuthorized={this.props.isAuthorized} component={AboutPage} />
+          <PrivateRoute
+            path="/dashboard"
+            isAuthorized={this.props.isAuthorized}
+            component={DashboardPageContainer}
+          />
+          <PrivateRoute
+            path="/about"
+            isAuthorized={this.props.isAuthorized}
+            component={AboutPage}
+          />
           <Redirect from="/" to="/about" />
         </div>
       </Router>

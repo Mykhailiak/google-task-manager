@@ -12,6 +12,7 @@ import './Navigation.css';
 const Navigation = ({
   tasksLists,
   createTaskList,
+  signOut,
 }) => {
   return (
     <section className="Navigation">
@@ -35,7 +36,7 @@ const Navigation = ({
           />
           <Divider />
           <List className="Navigation__list">
-            <ListItem primaryText="Logout" />
+            <ListItem onClick={signOut} primaryText="Logout" />
           </List>
         </div>
       </MuiThemeProvider>
@@ -46,6 +47,7 @@ const Navigation = ({
 Navigation.propTypes = {
   tasksLists: array.isRequired,
   createTaskList: func.isRequired,
+  signOut: func.isRequired,
 };
 
 export default Navigation;

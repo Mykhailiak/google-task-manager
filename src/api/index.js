@@ -42,12 +42,23 @@ export default {
       gapi.auth.authorize({
         client_id: CLIENT_ID,
         scope: SCOPES,
-        immediate: immediate,
+        immediate,
         cookie_policy: 'single_host_origin',
       }, (authResult) => {
         resolve(authResult);
       });
     });
+  },
+
+  /**
+   * Sign out of Gmail
+   * 
+   * @returns {Promise}
+   */
+  signout() {
+    gapi.auth.setToken(null);
+
+    return gapi.auth.signOut();
   },
 
   /**
