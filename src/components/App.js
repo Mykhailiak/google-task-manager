@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
+  Redirect
 } from 'react-router-dom';
 import { bool } from 'prop-types';
 import LoginPageContainer from '../containers/LoginPageContainer';
@@ -26,6 +27,7 @@ class App extends Component {
           <Route path="/login" component={LoginPageContainer} />
           <Route path="/dashboard" component={DashboardPageContainer} />
           <PrivateRoute path="/about" isAuthorized={this.props.isAuthorized} component={AboutPage} />
+          <Redirect from="/" to="/about" />
         </div>
       </Router>
     );
