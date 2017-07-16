@@ -16,6 +16,16 @@ class TasksListItem extends Component {
     }
   }
 
+  handleStatusChange = (taskId, { completed, }) => {
+    const tasksListId = this.props.match.params.id;
+
+    this.props.updateTaskStatus({
+      tasksListId,
+      taskId,
+      status: completed,
+    });
+  }
+
   render() {
     if (this.props.loading) {
       return (
@@ -32,6 +42,7 @@ class TasksListItem extends Component {
               <SingleTask
                 key={task.id}
                 isCompleted={task.status === 'completed'}
+                onStatusChange={(params) => this.handleStatusChange(task.id, params)}
                 {...task}
               />)) :
             <MuiThemeProvider>
@@ -50,6 +61,7 @@ TasksListItem.propTypes = {
   fetchTaskskListItem: func.isRequired,
   tasks: array.isRequired,
   loading: bool.isRequired,
+  updateTaskStatus: func.isRequired,
 };
 
 export default TasksListItem;

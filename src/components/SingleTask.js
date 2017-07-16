@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, bool } from 'prop-types';
+import { string, bool, func } from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Checkbox from 'material-ui/Checkbox';
 import className from 'classnames';
@@ -8,8 +8,8 @@ import { Card, CardHeader } from 'material-ui/Card';
 const SingleTask = ({
   title,
   updated,
-  status,
   isCompleted,
+  onStatusChange,
 }) => {
   return (
     <section className={className('SingleTasks', {
@@ -20,10 +20,11 @@ const SingleTask = ({
           <Checkbox
             className="SingleTask__checkbox"
             checked={isCompleted}
+            onCheck={() => onStatusChange({ completed: !isCompleted, })}
           />
           <CardHeader
             title={title}
-            subtitle={`Updated at: ${new Date(updated).toLocaleString()}; Status - ${status}`}
+            subtitle={`Updated at: ${new Date(updated).toLocaleString()}`}
           />
         </Card>
       </MuiThemeProvider>
@@ -36,6 +37,7 @@ SingleTask.propTypes = {
   updated: string.isRequired,
   status: string.isRequired,
   isCompleted: bool.isRequired,
+  onStatusChange: func.isRequired,
 };
 
 export default SingleTask;
