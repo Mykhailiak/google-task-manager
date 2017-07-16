@@ -20,13 +20,13 @@ class CreateNewList extends Component {
   };
 
   submitForm = () => {
-    this.props.submit(this.taskName);
+    this.props.submit(this.listName);
 
     this.handleToggle();
   }
 
   changeFieldHandler = (e) => {
-    this.taskName = e.target.value;
+    this.listName = e.target.value;
   }
 
   render() {
