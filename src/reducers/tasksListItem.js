@@ -3,7 +3,9 @@ import {
   TASKS_LIST_ITEM_FAIL,
   TASKS_LIST_ITEM_REQUEST,
   TASK_UPDATE_SUCCESS,
-  TASK_UPDATE_FAIL
+  TASK_UPDATE_FAIL,
+  TASK_CREATE_SUCCESS,
+  TASK_CREATE_FAIL
 } from '../constants/tasksListItem';
 
 const initialData = {
@@ -48,9 +50,24 @@ export default function tasksListItemReducer(state = initialData, action) {
   case TASK_UPDATE_SUCCESS:
     return {
       ...state,
+      error: false,
       list: state.list.map(task => taskReducer(task, action)),
     };
   case TASK_UPDATE_FAIL:
+    return {
+      ...state,
+      error: true,
+    };
+  case TASK_CREATE_SUCCESS:
+    return {
+      ...state,
+      error: false,
+      list: [
+        action.task,
+        ...state.list
+      ],
+    };
+  case TASK_CREATE_FAIL:
     return {
       ...state,
       error: true,

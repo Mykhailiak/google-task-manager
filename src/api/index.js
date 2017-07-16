@@ -132,4 +132,19 @@ export default {
 
     return new Promise((resolve) => request.execute(resp => resolve(resp)));
   },
+
+  /**
+   * Create new task
+   * 
+   * @param {Object} { taskListId, title, } 
+   * @returns {Promise}
+   */
+  insertTask({ taskListId, title, }) {
+    const request = gapi.client.tasks.tasks.insert({
+      tasklist: taskListId,
+      title,
+    });
+
+    return new Promise((resolve) => request.execute(resp => resolve(resp)));
+  },
 };
