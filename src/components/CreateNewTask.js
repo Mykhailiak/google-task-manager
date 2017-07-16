@@ -60,7 +60,7 @@ class CreateNewTask extends Component {
             actions={actions}
             onRequestClose={this.handleToggle}
           >
-            <TextField onChange={this.changeFieldHandler} style={{ width: '100%', }} hintText="Hint Text" />
+            <TextField onChange={this.changeFieldHandler} style={{ width: '100%', }} hintText="Enter task description" />
           </Dialog>
         </section>
       </MuiThemeProvider>

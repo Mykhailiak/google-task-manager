@@ -46,6 +46,23 @@ export const updateTaskStatus = ({ tasksListId, taskId, status, }) => async disp
   }
 };
 
+export const updateTask = ({ tasksListId, taskId, title, }) => async dispatch => {
+  try {
+    const task = await api.updateTask({
+      tasksListId,
+      taskId,
+      title,
+    });
+
+    dispatch(taskUpdateSuccess({
+      taskId,
+      task,
+    }));
+  } catch(error) {
+    dispatch(taskUpdateFail(error));
+  }
+};
+
 export const createTask = ({ taskListId, title, }) => async dispatch => {
   try {
     const task = await api.insertTask({

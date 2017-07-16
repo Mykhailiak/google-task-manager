@@ -51,6 +51,8 @@ class TasksListItem extends Component {
                 key={task.id}
                 isCompleted={task.status === 'completed'}
                 onStatusChange={(params) => this.handleStatusChange(task.id, params)}
+                onUpdate={this.props.updateTask}
+                taskListId={this.props.match.params.id}
                 {...task}
               />)) :
             <MuiThemeProvider>
@@ -70,6 +72,7 @@ TasksListItem.propTypes = {
   tasks: array.isRequired,
   loading: bool.isRequired,
   updateTaskStatus: func.isRequired,
+  updateTask: func.isRequired,
   createNewTask: func.isRequired,
 };
 
