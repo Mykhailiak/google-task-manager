@@ -35,7 +35,6 @@ class App extends Component {
             isAuthorized={this.props.isAuthorized}
             component={AboutPage}
           />
-          <Redirect from="/" to="/about" />
         </div>
       </Router>
     );
