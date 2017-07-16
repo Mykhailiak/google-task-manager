@@ -28,7 +28,12 @@ class TasksListItem extends Component {
         <h3>Tasks Lists Item</h3>
         {
           this.props.tasks.length ?
-            this.props.tasks.map(task => (<SingleTask key={task.id} {...task} />)) :
+            this.props.tasks.map(task => (
+              <SingleTask
+                key={task.id}
+                isCompleted={task.status === 'completed'}
+                {...task}
+              />)) :
             <MuiThemeProvider>
               <Paper style={{ textAlign: 'center', padding: 8, }}>
                 <span>List is empty</span>

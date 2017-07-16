@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classname": "0.0.0",
+    "classnames": "^2.2.5",
     "material-ui": "^0.18.5",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
-    "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
@@ -19,7 +20,8 @@
     "pre-commit": "^1.2.2",
     "react-redux": "^5.0.5",
     "react-scripts": "1.0.10",
-    "redux": "^3.7.1"
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,9 +29,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "eslint:check": "./node_modules/eslint/bin/eslint.js src/",
-    "eslint:fix": "./node_modules/eslint/bin/eslint.js src/ --fix"
+    "eslint:fix": "./node_modules/eslint/bin/eslint.js src/ --fix",
+    "git:add": "git add ."
   },
   "pre-commit": [
-    "eslint:fix"
+    "eslint:fix",
+    "git:add"
   ]
 }
