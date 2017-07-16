@@ -32,6 +32,22 @@ export default {
   },
 
   /**
+   * Login user if token exist in session storage
+   * 
+   * @returns {Promise}
+   */
+  checkTokenPersistence() {
+    return new Promise((resolve) => {
+      const access_token = sessionStorage.getItem('access_token');
+      if (access_token) {
+        gapi.auth.setToken({ access_token, });
+
+        return resolve(access_token);
+      }
+    });
+  },
+
+  /**
    * Authenticate with Google
    * 
    * @param {Object} { immediate } 

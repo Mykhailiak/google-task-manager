@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Redirect
 } from 'react-router-dom';
-import { bool } from 'prop-types';
+import { bool, func } from 'prop-types';
 import LoginPageContainer from '../containers/LoginPageContainer';
 import DashboardPageContainer from '../containers/DashboardContainer';
 import PrivateRoute from './PrivateRoute';
-import AboutPage from './AboutPage';
 import api from '../api';
+import AboutPage from './AboutPage';
 import './App.css';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 class App extends Component {
-  componentDidMount() {
-    api.loadApi();
+  componentWillMount() {
+    api.loadApi()
+      .then(() => this.props.logInUserPrecenceOfTokens());
   }
 
   render() {
@@ -44,6 +44,7 @@ class App extends Component {
 
 App.propTypes = {
   isAuthorized: bool.isRequired,
+  logInUserPrecenceOfTokens: func.isRequired,
 };
 
 export default App;

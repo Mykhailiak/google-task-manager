@@ -20,8 +20,10 @@ export const loginUser = () => async dispatch => {
   dispatch(sessionAuthorizeRequest());
 
   try {
-    const authorizeData = await api.authorize({ immediate: false, });
-    dispatch(sessionAuthorizeSuccess(authorizeData));
+    const { access_token, } = await api.authorize({ immediate: false, });
+    sessionStorage.setItem('access_token', access_token);
+
+    dispatch(sessionAuthorizeSuccess({ accessToken: access_token, }));
   } catch(err) {
     dispatch(sessionAuthorizeFail(err));
   }
@@ -33,8 +35,15 @@ export const logout = () => async dispatch => {
 
   try {
     api.signout();
+    sessionStorage.removeItem('access_token');
+
     dispatch(sessionSignOutSuccess());
   } catch(err) {
     dispatch(SESSION_SIGN_OUT_ERROR);
   }
+};
+
+export const logInUserPrecenceOfTokens = () => async dispatch => {
+  return api.checkTokenPersistence()
+    .then((accessToken) => dispatch(sessionAuthorizeSuccess({ access_token: accessToken, })));
 };
