@@ -2,7 +2,7 @@ import React from 'react';
 import { string, bool } from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Checkbox from 'material-ui/Checkbox';
-import className from 'classname';
+import className from 'classnames';
 import { Card, CardHeader } from 'material-ui/Card';
 
 const SingleTask = ({

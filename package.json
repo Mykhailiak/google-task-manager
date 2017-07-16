@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "classname": "0.0.0",
     "classnames": "^2.2.5",
     "material-ui": "^0.18.5",
     "prop-types": "^15.5.10",
