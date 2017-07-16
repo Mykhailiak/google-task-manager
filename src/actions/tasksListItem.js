@@ -48,7 +48,7 @@ export const updateTaskStatus = ({ tasksListId, taskId, status, }) => async disp
 
 export const createTask = ({ taskListId, title, }) => async dispatch => {
   try {
-    const task = await api.createTask({
+    const task = await api.insertTask({
       taskListId,
       title,
     });

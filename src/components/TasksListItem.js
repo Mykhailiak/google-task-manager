@@ -3,7 +3,9 @@ import { object, func, array, bool } from 'prop-types';
 import SingleTask from './SingleTask';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Progress from './Progress';
+import CreateNewTask from './CreateNewTask';
 import Paper from 'material-ui/Paper';
+import './TasksListItem.css';
 
 class TasksListItem extends Component {
   componentWillMount() {
@@ -35,7 +37,13 @@ class TasksListItem extends Component {
 
     return (
       <section className="TasksListItem">
-        <h3>Tasks Lists Item</h3>
+        <section className="TasksListItem__header">
+          <h3>Tasks Lists Item</h3>
+          <CreateNewTask
+            submit={this.props.createNewTask}
+            taskListId={this.props.match.params.id}
+          />
+        </section>
         {
           this.props.tasks.length ?
             this.props.tasks.map(task => (
@@ -62,6 +70,7 @@ TasksListItem.propTypes = {
   tasks: array.isRequired,
   loading: bool.isRequired,
   updateTaskStatus: func.isRequired,
+  createNewTask: func.isRequired,
 };
 
 export default TasksListItem;
