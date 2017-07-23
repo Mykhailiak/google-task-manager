@@ -4,4 +4,4 @@
 
 ----------------------------------------
 
-<img src="http://imgur.com/a/S0Har" />
+<img src="http://i.imgur.com/I9zfi3C.gif" />
