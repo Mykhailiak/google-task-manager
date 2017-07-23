@@ -1,8 +1,0 @@
-{
-  "CLIENT_ID": "24886768089-nvsj79pmplq7t18g6akvjnpn4leu7i1s.apps.googleusercontent.com",
-  "SCOPES": [
-    "https://www.googleapis.com/auth/tasks",
-    "https://www.googleapis.com/auth/plus.me",
-    "https://www.googleapis.com/auth/userinfo.profile"
-  ]
-}
