@@ -7,7 +7,14 @@
 /coverage
 
 # production
-/build
+src/
+public/
+.editorconfig
+.eslintignore
+.eslintrc.json
+.nvmrc
+.travis.yml
+package-lock.json
 
 # misc
 .DS_Store
