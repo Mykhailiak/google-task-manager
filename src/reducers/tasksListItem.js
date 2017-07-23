@@ -5,7 +5,8 @@ import {
   TASK_UPDATE_SUCCESS,
   TASK_UPDATE_FAIL,
   TASK_CREATE_SUCCESS,
-  TASK_CREATE_FAIL
+  TASK_CREATE_FAIL,
+  TASK_UPDATE_REQUEST,
 } from '../constants/tasksListItem';
 
 const initialData = {
@@ -19,6 +20,15 @@ const taskReducer = (state = {}, action) => {
   case TASK_UPDATE_SUCCESS:
     if(action.data.taskId === state.id) {
       return action.data.task;
+    }
+
+    return state;
+  case TASK_UPDATE_REQUEST:
+    if(action.data.taskId === state.id) {
+      return {
+        ...state,
+        status: action.data.status,
+      };
     }
 
     return state;
@@ -46,6 +56,12 @@ export default function tasksListItemReducer(state = initialData, action) {
       ...state,
       loading: false,
       error: true,
+    };
+  case TASK_UPDATE_REQUEST:
+    return {
+      ...state,
+      error: false,
+      list: state.list.map(task => taskReducer(task, action)),
     };
   case TASK_UPDATE_SUCCESS:
     return {

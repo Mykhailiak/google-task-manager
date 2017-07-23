@@ -2,6 +2,7 @@ import {
   TASKS_LIST_ITEM_REQUEST,
   TASKS_LIST_ITEM_SUCCESS,
   TASKS_LIST_ITEM_FAIL,
+  TASK_UPDATE_REQUEST,
   TASK_UPDATE_SUCCESS,
   TASK_UPDATE_FAIL,
   TASK_CREATE_SUCCESS,
@@ -15,6 +16,7 @@ export const tasksListItemSuccess = (list) => ({ type: TASKS_LIST_ITEM_SUCCESS, 
 export const tasksListItemFail = (error) => ({ type: TASKS_LIST_ITEM_FAIL, error, });
 export const taskUpdateSuccess = (data) => ({ type: TASK_UPDATE_SUCCESS, data, });
 export const taskUpdateFail = (error) => ({ type: TASK_UPDATE_FAIL, error, });
+export const taskUpdateRequest = (data) => ({ type: TASK_UPDATE_REQUEST, data, });
 export const taskCreateSuccess = (task) => ({ type: TASK_CREATE_SUCCESS, task, });
 export const taskCreateFail = (error) => ({ type: TASK_CREATE_FAIL, error, });
 
@@ -30,18 +32,25 @@ export const fetchTaskskListItem = (listId) => async dispatch => {
 };
 
 export const updateTaskStatus = ({ tasksListId, taskId, status, }) => async dispatch => {
+  const externalStatus = status ? 'completed' : 'needsAction';
+
+  dispatch(taskUpdateRequest({
+    taskId,
+    status: externalStatus,
+  }));
+
   try {
     const task = await api.updateTask({
       tasksListId,
       taskId,
-      status: status ? 'completed' : 'needsAction',
+      status: externalStatus,
     });
 
     dispatch(taskUpdateSuccess({
       taskId,
       task,
     }));
-  } catch(error) {
+  } catch (error) {
     dispatch(taskUpdateFail(error));
   }
 };
@@ -58,7 +67,7 @@ export const updateTask = ({ tasksListId, taskId, title, }) => async dispatch =>
       taskId,
       task,
     }));
-  } catch(error) {
+  } catch (error) {
     dispatch(taskUpdateFail(error));
   }
 };
@@ -71,7 +80,7 @@ export const createTask = ({ taskListId, title, }) => async dispatch => {
     });
 
     dispatch(taskCreateSuccess(task));
-  } catch(error) {
+  } catch (error) {
     dispatch(taskCreateFail(error));
   }
 };
