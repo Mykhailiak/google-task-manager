@@ -32,6 +32,15 @@ const taskReducer = (state = {}, action) => {
     }
 
     return state;
+  case TASK_UPDATE_FAIL:
+    if(action.data.taskId === state.id) {
+      return {
+        ...state,
+        status: action.data.statusOnError != null ? action.data.statusOnError : state.action,
+      };
+    }
+
+    return state;
   default:
     return state;
   }
@@ -72,6 +81,7 @@ export default function tasksListItemReducer(state = initialData, action) {
   case TASK_UPDATE_FAIL:
     return {
       ...state,
+      list: state.list.map(task => taskReducer(task, action)),
       error: true,
     };
   case TASK_CREATE_SUCCESS:
